@@ -2,12 +2,28 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="tasks.js"></script>
     <title>My First HTML Page</title>
 </head>
 
 <body>
-    <h1>Hello, World!</h1>
-    <p>This is my first HTML page.</p>
+    <div class="tasks">
+    </div>
+    <button onclick="addNewTask()">Add Task</button>
+    <button onclick="showCurrentTask()">Find me a Task</button>
+    <button onclick="clearTasks()">Clear</button>
+    <div class="current-task"></div>
+    <div class="new-task-form hidden">
+        <input type="text" id="task-title" placeholder="Task Title">
+        <input type="text" id="task-desc" placeholder="Task Description">
+        <button onclick="addTask()">Save</button>
+        <button onclick="hideAddTaskOverlay()">Cancel</button>
+    </div>
 </body>
+
+<script>
+    displayTaskList();
+</script>
 
 </html>

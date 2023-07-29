@@ -18,10 +18,13 @@ function hideAddTaskOverlay() {
 }
 
 function addTask() {
+    const id = getTasks()
+        .map(function (task) { return task.id; })
+        .reduce(function (a, b) { return Math.max(a, b); }, 0) + 1;
     const title = document.querySelector('#task-title-input').value;
     const description = document.querySelector('#task-desc-input').value;
     const task = {
-        id: 0,
+        id: id,
         title: title,
         description: description,
         completed: false
@@ -111,7 +114,7 @@ function showCurrentTask() {
         + '<button class="button button-cancel">Close</button>'
         + '</div>';
     currentTaskDiv.querySelector('.button-default').onclick = function () {
-        toggleCompleted(task.title);
+        toggleCompleted(task.id);
     };
     currentTaskDiv.querySelector('.button-cancel').onclick = function () {
         currentTaskDiv.classList.add('hidden');
@@ -119,10 +122,10 @@ function showCurrentTask() {
     currentTaskDiv.classList.remove('hidden');
 }
 
-function toggleCompleted(title) {
+function toggleCompleted(id) {
     const tasks = getTasks();
     for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].title === title) {
+        if (tasks[i].id === id) {
             tasks[i].completed = !tasks[i].completed;
         }
     }

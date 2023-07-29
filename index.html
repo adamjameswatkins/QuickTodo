@@ -10,16 +10,18 @@
 <body>
     <div class="tasks">
     </div>
-    <button onclick="addNewTask()">Add Task</button>
-    <button onclick="showCurrentTask()">Find me a Task</button>
-    <button onclick="clearTasks()">Clear</button>
+    <div class="buttons">
+        <button class="button" onclick="addNewTask()">Add Task</button>
+        <button class="button" onclick="showCurrentTask()">Find me a Task</button>
+        <button class="button" onclick="clearTasks()">Clear</button>
+    </div>
     <div class="current-task hidden">
     </div>
     <div class="new-task-form hidden">
         <input type="text" id="task-title-input" placeholder="Task Title">
         <input type="text" id="task-desc-input" placeholder="Task Description">
-        <button onclick="addTask()">Save</button>
-        <button onclick="hideAddTaskOverlay()">Cancel</button>
+        <button class="button" onclick="addTask()">Save</button>
+        <button class="button" onclick="hideAddTaskOverlay()">Cancel</button>
     </div>
 </body>
 

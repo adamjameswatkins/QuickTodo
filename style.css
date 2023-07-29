@@ -1,13 +1,18 @@
-.new-task-form {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+.buttons {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.button {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(54, 82, 243);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: large;
+    font-weight: bold;
 }
 
 .tasks {
@@ -27,6 +32,18 @@
     background-color: grey;
 }
 
+.new-task-form {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .current-task {
     position: fixed;
     top: 0;
@@ -38,6 +55,15 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+.current-task .task-title {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.current-task .task-desc {
+    color: light;
 }
 
 .hidden {

@@ -13,10 +13,11 @@
     <button onclick="addNewTask()">Add Task</button>
     <button onclick="showCurrentTask()">Find me a Task</button>
     <button onclick="clearTasks()">Clear</button>
-    <div class="current-task"></div>
+    <div class="current-task">
+    </div>
     <div class="new-task-form hidden">
-        <input type="text" id="task-title" placeholder="Task Title">
-        <input type="text" id="task-desc" placeholder="Task Description">
+        <input type="text" id="task-title-input" placeholder="Task Title">
+        <input type="text" id="task-desc-input" placeholder="Task Description">
         <button onclick="addTask()">Save</button>
         <button onclick="hideAddTaskOverlay()">Cancel</button>
     </div>

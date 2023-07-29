@@ -18,8 +18,8 @@ function hideAddTaskOverlay() {
 }
 
 function addTask() {
-    const title = document.querySelector('#task-title').value;
-    const description = document.querySelector('#task-desc').value;
+    const title = document.querySelector('#task-title-input').value;
+    const description = document.querySelector('#task-desc-input').value;
     const task = {
         title: title,
         description: description,
@@ -31,6 +31,17 @@ function addTask() {
 
 function clearTasks() {
     localStorage.setItem('tasks', '[]');
+    displayTaskList();
+}
+
+function toggleCompleted(title) {
+    const tasks = getTasks();
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].title === title) {
+            tasks[i].completed = !tasks[i].completed;
+        }
+    } 
+    saveTasks(tasks);
     displayTaskList();
 }
 
@@ -82,12 +93,16 @@ function displayTaskList() {
         taskDiv.classList.add('task');
         if (tasks[i].completed) {
             taskDiv.classList.add('completed');
-        }
+        }       
         document.querySelector('.tasks').appendChild(taskDiv);
     }
 }
 
 function showCurrentTask() {
     const task = getRandomTask();
-    document.querySelector('.current-task').innerHTML = task.title + ' - ' + task.description;
+    const currentTaskDiv = document.querySelector('.current-task');
+    currentTaskDiv.innerHTML = '<div class="task-title">' + task.title + '</div><div class="task-desc">' + task.description + '</div>';
+    currentTaskDiv.onclick = function () {
+        toggleCompleted(task.title);
+    };
 }

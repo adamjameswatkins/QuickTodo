@@ -25,7 +25,7 @@ function getNewTaskId() {
 }
 
 function addTask() {
-    getNewTaskId();
+    const id = getNewTaskId();
     const titleField = document.querySelector('#task-title-input');
     const descriptionField = document.querySelector('#task-desc-input');
     const title = titleField.value;

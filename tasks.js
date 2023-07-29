@@ -1,8 +1,15 @@
+const Size = {
+    Small: 'Small',
+    Medium: 'Medium',
+    Large: 'Large'
+}
+
 function addRandomTask() {
     const temp = Math.floor(Math.random() * 100);
     const task = {
         title: temp,
         description: temp,
+        size: Size.Small,
         completed: false
     };
     saveTask(task);
@@ -36,14 +43,14 @@ function addTask() {
         description: description,
         completed: false
     };
-    
+
     // Save the task
     saveTask(task);
 
     // Clear the form
     titleField.value = '';
     descriptionField.value = '';
-    
+
     displayTaskList();
 }
 

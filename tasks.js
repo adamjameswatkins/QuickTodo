@@ -34,17 +34,6 @@ function clearTasks() {
     displayTaskList();
 }
 
-function toggleCompleted(title) {
-    const tasks = getTasks();
-    for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].title === title) {
-            tasks[i].completed = !tasks[i].completed;
-        }
-    } 
-    saveTasks(tasks);
-    displayTaskList();
-}
-
 function saveTask(task) {
     const tasks = getOrCreateTasks();
 
@@ -105,4 +94,16 @@ function showCurrentTask() {
     currentTaskDiv.onclick = function () {
         toggleCompleted(task.title);
     };
+    currentTaskDiv.classList.remove('hidden');
+}
+
+function toggleCompleted(title) {
+    const tasks = getTasks();
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].title === title) {
+            tasks[i].completed = !tasks[i].completed;
+        }
+    } 
+    saveTasks(tasks);
+    displayTaskList();
 }

@@ -9,31 +9,45 @@ function addRandomTask() {
     displayTaskList();
 }
 
-function addNewTask() {
+function showAddTaskForm() {
     document.querySelector('.new-task-form').classList.remove('hidden');
 }
 
-function hideAddTaskOverlay() {
+function hideAddTaskForm() {
     document.querySelector('.new-task-form').classList.add('hidden');
 }
 
-function addTask() {
+function getNewTaskId() {
     const id = getTasks()
         .map(function (task) { return task.id; })
         .reduce(function (a, b) { return Math.max(a, b); }, 0) + 1;
-    const title = document.querySelector('#task-title-input').value;
-    const description = document.querySelector('#task-desc-input').value;
+    return id;
+}
+
+function addTask() {
+    getNewTaskId();
+    const titleField = document.querySelector('#task-title-input');
+    const descriptionField = document.querySelector('#task-desc-input');
+    const title = titleField.value;
+    const description = descriptionField.value;
     const task = {
         id: id,
         title: title,
         description: description,
         completed: false
     };
+    
+    // Save the task
     saveTask(task);
+
+    // Clear the form
+    titleField.value = '';
+    descriptionField.value = '';
+    
     displayTaskList();
 }
 
-function clearTasks() {
+function clearStoredTasks() {
     localStorage.setItem('tasks', '[]');
     displayTaskList();
 }

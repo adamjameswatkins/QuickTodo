@@ -4,16 +4,16 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <script src="tasks.js"></script>
-    <title>My First HTML Page</title>
+    <title>Quick Todo</title>
 </head>
 
 <body>
     <div class="tasks">
     </div>
     <div class="buttons">
-        <button class="button button-default" onclick="addNewTask()">Add Task</button>
+        <button class="button button-default" onclick="showAddTaskForm()">Add Task</button>
         <button class="button button-default" onclick="showCurrentTask()">Find me a Task</button>
-        <button class="button button-cancel" onclick="clearTasks()">Clear</button>
+        <button class="button button-cancel" onclick="clearStoredTasks()">Clear</button>
     </div>
     <div class="current-task hidden">
     </div>
@@ -22,7 +22,7 @@
         <input type="text" id="task-desc-input" placeholder="Task Description">
         <div class="new-task-form-buttons">
             <button class="button button-default" onclick="addTask()">Save</button>
-            <button class="button button-cancel" onclick="hideAddTaskOverlay()">Cancel</button>
+            <button class="button button-cancel" onclick="hideAddTaskForm()">Cancel</button>
         </div>
     </div>
 </body>

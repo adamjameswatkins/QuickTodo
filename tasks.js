@@ -21,6 +21,7 @@ function addTask() {
     const title = document.querySelector('#task-title-input').value;
     const description = document.querySelector('#task-desc-input').value;
     const task = {
+        id: 0,
         title: title,
         description: description,
         completed: false
@@ -49,11 +50,24 @@ function getTasks() {
     return tasks;
 }
 
+function getRandomUncompletedTask() {
+    const tasks = getTasks();
+    const uncompletedTasks = [];
+    for (let i = 0; i < tasks.length; i++) {
+        if (!tasks[i].completed) {
+            uncompletedTasks.push(tasks[i]);
+        }
+    }
+    const randomIndex = Math.floor(Math.random() * uncompletedTasks.length);
+    const randomTask = uncompletedTasks[randomIndex];
+    return randomTask;
+}
+
+
 function getRandomTask() {
     const tasks = getOrCreateTasks();
     const randomIndex = Math.floor(Math.random() * tasks.length);
     const randomTask = tasks[randomIndex];
-    console.log(randomTask);
     return randomTask;
 }
 
@@ -82,17 +96,25 @@ function displayTaskList() {
         taskDiv.classList.add('task');
         if (tasks[i].completed) {
             taskDiv.classList.add('completed');
-        }       
+        }
         document.querySelector('.tasks').appendChild(taskDiv);
     }
 }
 
 function showCurrentTask() {
-    const task = getRandomTask();
+    const task = getRandomUncompletedTask();
     const currentTaskDiv = document.querySelector('.current-task');
-    currentTaskDiv.innerHTML = '<div class="task-title">' + task.title + '</div><div class="task-desc">' + task.description + '</div>';
-    currentTaskDiv.onclick = function () {
+    currentTaskDiv.innerHTML = '<div class="task-title">' + task.title + '</div>'
+        + '<div class="task-desc">' + task.description + '</div>'
+        + '<div class="buttons">'
+        + '<button class="button button-default">Completed</button>'
+        + '<button class="button button-cancel">Close</button>'
+        + '</div>';
+    currentTaskDiv.querySelector('.button-default').onclick = function () {
         toggleCompleted(task.title);
+    };
+    currentTaskDiv.querySelector('.button-cancel').onclick = function () {
+        currentTaskDiv.classList.add('hidden');
     };
     currentTaskDiv.classList.remove('hidden');
 }
@@ -103,7 +125,7 @@ function toggleCompleted(title) {
         if (tasks[i].title === title) {
             tasks[i].completed = !tasks[i].completed;
         }
-    } 
+    }
     saveTasks(tasks);
     displayTaskList();
 }

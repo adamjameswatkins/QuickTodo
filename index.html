@@ -11,17 +11,19 @@
     <div class="tasks">
     </div>
     <div class="buttons">
-        <button class="button" onclick="addNewTask()">Add Task</button>
-        <button class="button" onclick="showCurrentTask()">Find me a Task</button>
-        <button class="button" onclick="clearTasks()">Clear</button>
+        <button class="button button-default" onclick="addNewTask()">Add Task</button>
+        <button class="button button-default" onclick="showCurrentTask()">Find me a Task</button>
+        <button class="button button-cancel" onclick="clearTasks()">Clear</button>
     </div>
     <div class="current-task hidden">
     </div>
     <div class="new-task-form hidden">
         <input type="text" id="task-title-input" placeholder="Task Title">
         <input type="text" id="task-desc-input" placeholder="Task Description">
-        <button class="button" onclick="addTask()">Save</button>
-        <button class="button" onclick="hideAddTaskOverlay()">Cancel</button>
+        <div class="new-task-form-buttons">
+            <button class="button button-default" onclick="addTask()">Save</button>
+            <button class="button button-cancel" onclick="hideAddTaskOverlay()">Cancel</button>
+        </div>
     </div>
 </body>
 

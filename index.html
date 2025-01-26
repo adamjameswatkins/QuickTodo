@@ -2,27 +2,30 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="tasks.js"></script>
     <title>Quick Todo</title>
 </head>
 
 <body>
-    <div class="tasks">
-    </div>
-    <div class="buttons">
-        <button class="button button-default" onclick="showAddTaskForm()">Add Task</button>
-        <button class="button button-default" onclick="showCurrentTask()">Find me a Task</button>
-        <button class="button button-cancel" onclick="clearStoredTasks()">Clear</button>
-    </div>
-    <div class="current-task hidden">
-    </div>
-    <div class="new-task-form hidden">
-        <input type="text" id="task-title-input" placeholder="Task Title">
-        <input type="text" id="task-desc-input" placeholder="Task Description">
-        <div class="new-task-form-buttons">
-            <button class="button button-default" onclick="addTask()">Save</button>
-            <button class="button button-cancel" onclick="hideAddTaskForm()">Cancel</button>
+    <div class="container">
+        <div class="tasks">
+        </div>
+        <div class="buttons">
+            <button class="button button-default" onclick="showAddTaskForm()">Add Task</button>
+            <button class="button button-default" onclick="showCurrentTask()">Find me a Task</button>
+            <button class="button button-cancel" onclick="clearStoredTasks()">Clear</button>
+        </div>
+        <div class="current-task hidden">
+        </div>
+        <div class="new-task-form hidden">
+            <input type="text" id="task-title-input" placeholder="Task Title">
+            <input type="text" id="task-desc-input" placeholder="Task Description">
+            <div class="new-task-form-buttons">
+                <button class="button button-default" onclick="addTask()">Save</button>
+                <button class="button button-cancel" onclick="hideAddTaskForm()">Cancel</button>
+            </div>
         </div>
     </div>
 </body>

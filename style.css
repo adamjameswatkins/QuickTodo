@@ -1,26 +1,47 @@
+:root {
+    --primary-color: #5a6e76;
+    --secondary-color: #393941;
+    --highlight-color: #3da1c2;
+    --background-color: #373737;
+    --foreground-color: #dbeaf3;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.button {
-    margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    font-size: large;
+button, .button {
     font-weight: bold;
+    background-color: var(--highlight-color);
+    color: var(--foreground-color);
+    padding: 0.5em 1em;
+    margin: 0.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .button-default {
-    background-color: rgb(54, 82, 243);
-    color: white;
 }
 
 .button-cancel {
-    background-color: rgb(243, 54, 63);
-    color: white;
+    background-color: var(--background-color);
+    border-color: var(--highlight-color);
+    border-width: 1px;
+    border-style: solid;
 }
 
 .tasks {
@@ -32,12 +53,12 @@
 .task {
     margin: 10px;
     padding: 10px;    
-    background-color: cadetblue;
+    background-color: var(--primary-color);
     border-radius: 5px;
 }
 
 .completed {
-    background-color: grey;
+    background-color: var(--secondary-color);
 }
 
 .new-task-form {
